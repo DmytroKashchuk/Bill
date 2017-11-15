@@ -1,2 +1,15 @@
-<h1>Bills#new</h1>
-<p>Find me in app/views/bills/new.html.erb</p>
+<h1>Add fattures to client: <%#@clients%></h1>
+<%= form_for([@client, @bill]) do |f| %>
+ 
+  <div class="field">
+    <%= f.text_field :note %>
+    <%= f.date_field :Data %>
+    <%= f.number_field :totalEuro %>
+    <%= f.number_field :totalHour %>
+
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%end%>

@@ -23,7 +23,7 @@
 <%if @client.bills.any?%>
 	<ul>
 		<%@client.bills.each do |i|%>
-		<li><%=i.name%></li>
+		<li><%=i.note%></li>
 		<%end%>
 	</ul>
 <%else%>
@@ -32,3 +32,4 @@
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
+<%= link_to 'add Bills', new_client_bill_path(@client) %>
