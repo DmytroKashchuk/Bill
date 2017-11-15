@@ -20,5 +20,15 @@
   <%= @client.hourTariff %>
 </p>
 
+<%if @client.bills.any?%>
+	<ul>
+		<%@client.bills.each do |i|%>
+		<li><%=i.name%></li>
+		<%end%>
+	</ul>
+<%else%>
+	<h1>No bill in this moment</h1>
+<%end%>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
