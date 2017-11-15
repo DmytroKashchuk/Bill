@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  note: MyString
+  Data: 2017-11-15
+  totalHour: 1
+  totalEuro: 1
+  client: one
+
+two:
+  note: MyString
+  Data: 2017-11-15
+  totalHour: 1
+  totalEuro: 1
+  client: two
