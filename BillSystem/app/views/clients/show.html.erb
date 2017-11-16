@@ -1,70 +1,35 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
+<table class="table table-striped table-inverse">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Surename</th>
+          <th>Fiscalcode</th>
+          <th>Hourtariff</th>
+        </tr>
+      </thead>
 
-<p>
-  <strong>Surename:</strong>
-  <%= @client.surename %>
-</p>
-
-<p>
-  <strong>Fiscalcode:</strong>
-  <%= @client.fiscalCode %>
-</p>
-
-<p>
-  <strong>Hourtariff:</strong>
-  <%= @client.hourTariff %>
-</p>
+      <tbody>
+          <tr>
+            <th><%= @client.name %></th>
+            <th><%= @client.surename %></th>
+            <th><%= @client.fiscalCode %></th>
+            <th><%= @client.hourTariff %></th>
+          </tr>
+      </tbody>
+    </table>
 
 <%if @client.bills.any?%>
-	<ul>
+	<ul class="list-group">
+		<li class="list-group-item active">Bills</li>
 		<%@client.bills.each do |i|%>
-		<li><%=i.note%></li>
+		<li class="list-group-item"><%=i.note%></li>
 		<%end%>
 	</ul>
 <%else%>
 	<h1>No bill in this moment</h1>
 <%end%>
-
-<div class="container">
-	<div class="row">
-		<table class="table table-striped table-inverse">
-		  <thead>
-		    <tr>
-		      <th>#</th>
-		      <th>Name</th>
-		      <th>Surename</th>
-		      <th>FiscalCde</th>
-		      <th>HourTariff</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <th scope="row">1</th>
-		      <td>Mark</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		    </tr>
-		    <tr>
-		      <th scope="row">2</th>
-		      <td>Jacob</td>
-		      <td>Thornton</td>
-		      <td>@fat</td>
-		    </tr>
-		    <tr>
-		      <th scope="row">3</th>
-		      <td>Larry</td>
-		      <td>the Bird</td>
-		      <td>@twitter</td>
-		    </tr>
-		  </tbody>
-		</table>
-	</div>
-</div>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

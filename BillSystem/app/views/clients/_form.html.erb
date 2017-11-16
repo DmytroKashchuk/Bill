@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :client_name %>
+  <div class="form-group">
+    <%= form.label :name%>
+    <%= form.text_field :name, id: :client_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :surename %>
-    <%= form.text_field :surename, id: :client_surename %>
+    <%= form.text_field :surename, id: :client_surename, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :fiscalCode %>
-    <%= form.text_field :fiscalCode, id: :client_fiscalCode %>
+    <%= form.text_field :fiscalCode, id: :client_fiscalCode, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :hourTariff %>
-    <%= form.number_field :hourTariff, id: :client_hourTariff %>
+    <%= form.number_field :hourTariff, id: :client_hourTariff, class: "form-control" %>
   </div>
 
   <div class="actions">
