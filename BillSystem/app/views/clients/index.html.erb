@@ -1,34 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <h1>Clients</h1>
+    <table class="table table-striped table-inverse">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Surename</th>
+          <th>Fiscalcode</th>
+          <th>Hourtariff</th>
+        </tr>
+      </thead>
 
-<h1>Clients</h1>
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <th scope="row"><%@client_id%></th>
+            <th><%= client.name %></th>
+            <th><%= client.surename %></th>
+            <th><%= client.fiscalCode %></th>
+            <th><%= client.hourTariff %></th>
+            <th><%= link_to 'Show bills relative this client', client %></th>
+            <th><%= link_to 'Edit', edit_client_path(client) %></th>
+            <th><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surename</th>
-      <th>Fiscalcode</th>
-      <th>Hourtariff</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.name %></td>
-        <td><%= client.surename %></td>
-        <td><%= client.fiscalCode %></td>
-        <td><%= client.hourTariff %></td>
-        <td><%= link_to 'Show bills relative this client', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    <div class="btn-group btn-group-justified" role="group" width="100%">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default"><%= link_to 'New Client', new_client_path %></button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= link_to 'New Client', new_client_path %>
+
+
+<div class="btn-group btn-group-justified" role="group">
+  
+</div>
+
+
