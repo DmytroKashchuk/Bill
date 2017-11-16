@@ -2,7 +2,6 @@
 <table class="table table-striped table-inverse">
       <thead>
         <tr>
-          <th>#</th>
           <th>Name</th>
           <th>Surename</th>
           <th>Fiscalcode</th>
@@ -22,7 +21,7 @@
 
 <%if @client.bills.any?%>
 	<ul class="list-group">
-		<li class="list-group-item active">Bills</li>
+		<li class="list-group-item active"><h3>Bills</h3></li>
 		<%@client.bills.each do |i|%>
 		<li class="list-group-item"><%=i.note%></li>
 		<%end%>
@@ -30,7 +29,7 @@
 <%else%>
 	<h1>No bill in this moment</h1>
 <%end%>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
-<%= link_to 'add Bills', new_client_bill_path(@client) %>
+<br>
+<%= link_to 'Edit', edit_client_path(@client), class: "btn btn-primary btn-lg active"%>
+<%= link_to 'Back', clients_path, class: "btn btn-primary btn-lg active" %>
+<%= link_to 'add Bills', new_client_bill_path(@client), class: "btn btn-primary btn-lg active" %>

@@ -3,6 +3,9 @@
   <head>
     <title>BillSystem</title>
 
+	<meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,6 +16,7 @@
 
   <body>
 
+<%= render 'pages/navbar'%>
 	<div class="container">
   		<!--<div class="row">-->
 
