@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  helper_method :sayHello, :howMuchIEarn
+  helper_method :sayHello, :total
 
   # GET /clients
   # GET /clients.json
@@ -30,7 +30,13 @@ class ClientsController < ApplicationController
   def edit
   end
 
-  def howMuchIEarn
+  def total
+    tot = 0
+    tarif = @client.hourTariff
+    @client.bills.each do |i|
+      tot = tot + (i.totalHour * tarif)
+    end
+    return tot
   end
 
   # POST /clients
