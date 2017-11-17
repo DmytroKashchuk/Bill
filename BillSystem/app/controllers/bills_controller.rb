@@ -20,7 +20,7 @@ class BillsController < ApplicationController
   private
  
   def bill_params
-    params.require(:bill).permit(:note)
+    params.require(:bill).permit(:note, :Data, :totalEuro, :totalHour)
   end
 
 end
