@@ -8,6 +8,10 @@ class ClientsController < ApplicationController
     @clients = Client.all
   end
 
+  def allclientWithBills
+    @clients = Client.all
+  end
+
   def sayHello
     "hello"
   end

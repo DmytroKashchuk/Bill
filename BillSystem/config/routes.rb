@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'static_page/Login'
-
+  get 'clients/allclientWithBills'
   get 'bills/new'
 
   resources :clients do

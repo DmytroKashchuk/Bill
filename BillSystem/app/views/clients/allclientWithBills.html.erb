@@ -1,4 +1,3 @@
-
     <h1>Clients</h1>
     <table class="table table-striped table-inverse">
       <thead class="thead-dark">
@@ -8,9 +7,6 @@
           <th>Surename</th>
           <th>Fiscalcode</th>
           <th>Hourtariff</th>
-          <th> </th>
-          <th> </th>
-          <th> </th>
         </tr>
       </thead>
 
@@ -22,9 +18,6 @@
             <th><%= client.surename %></th>
             <th><%= client.fiscalCode %></th>
             <th><%= client.hourTariff %></th>
-            <th><%= link_to 'Show bills relative this client', client %></th>
-            <th><%= link_to 'Edit', edit_client_path(client) %></th>
-            <th><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></th>
           </tr>
         <% end %>
       </tbody>
@@ -38,7 +31,3 @@
 <div class="btn-group btn-group-justified" role="group">
   
 </div>
-
-
-
-
