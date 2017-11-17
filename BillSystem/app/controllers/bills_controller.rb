@@ -1,4 +1,7 @@
 class BillsController < ApplicationController
+
+  helper_method  :howMuchHaveIPay
+
   def new
   	@client = Client.find params[:client_id]
   	@bill = Bill.new
@@ -16,6 +19,26 @@ class BillsController < ApplicationController
       end
     end
   end
+
+  def destroy
+  @bill = Bill.find params[:id]
+ 
+  respond_to do |format|
+    if @bill.destroy
+      format.html { redirect_to @bill.client,
+                    notice: 'Bill was successfully deleted.'}
+    else
+      format.html { redirect_to @bill.client,
+                    alert: 'Could not delete this bill'}
+    end
+  end
+end
+
+def howMuchHaveIPay
+	tarif = @bill.client.hourTariff
+	total = @bill.totalHour * tarif
+	return total
+end
  
   private
  

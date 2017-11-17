@@ -27,8 +27,11 @@
 	          <th>Date</th>
 	          <th>TotalHour</th>
 	          <th>totalEuro</th>
+	          <th>Earn</th>
+	          <th></th>
 	        </tr>
 	      </thead>
+
 <%if @client.bills.any?%>
 	      <tbody>
 	          <tr>
@@ -37,6 +40,12 @@
 	            <th><%= i.Data%></th>
 	            <th><%= i.totalHour %></th>
 	            <th><%= i.totalEuro %></th>
+	            <th><%=i.totalHour * @client.hourTariff%></th>
+	            <th>[<%= link_to  'Delete',
+                  client_bill_path(@client, i),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?'}
+    %>]</th>
 	          </tr>
 	          <% end -%>
 	      </tbody>

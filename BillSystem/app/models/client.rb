@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
 
-	has_many :bills
+	has_many :bills, dependent: :destroy
 
 	validates :name, presence: true
 	validates :surename, presence: true
