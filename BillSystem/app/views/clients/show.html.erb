@@ -23,7 +23,7 @@
 	<ul class="list-group">
 		<li class="list-group-item active"><h3>Bills</h3></li>
 		<%@client.bills.each do |i|%>
-		<li class="list-group-item"><%=i.Data%></li>
+		<li class="list-group-item"><%=i.note%></li>
 		<%end%>
 	</ul>
 <%else%>
@@ -33,3 +33,4 @@
 <%= link_to 'Edit', edit_client_path(@client), class: "btn btn-primary btn-lg active"%>
 <%= link_to 'Back', clients_path, class: "btn btn-primary btn-lg active" %>
 <%= link_to 'add Bills', new_client_bill_path(@client), class: "btn btn-primary btn-lg active" %>
+

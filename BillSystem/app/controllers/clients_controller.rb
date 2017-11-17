@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  helper_method :sayHello
 
   # GET /clients
   # GET /clients.json
