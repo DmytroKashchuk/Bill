@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171115192917) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
-    t.string "surname"
+    t.string "surename"
     t.string "fiscalCode"
     t.integer "hourTariff"
     t.datetime "created_at", null: false
