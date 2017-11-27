@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  surename: MyString
+  surname: MyString
   fiscalCode: MyString
   hourTariff: 1
 
 two:
   name: MyString
-  surename: MyString
+  surname: MyString
   fiscalCode: MyString
   hourTariff: 1
