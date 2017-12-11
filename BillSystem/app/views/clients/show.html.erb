@@ -20,7 +20,10 @@
   </table>
 
 
-	<table class="table">
+	
+
+<%if @client.bills.any?%>
+<table class="table">
 	      <thead class="thead-dark">
 	        <tr>
 	          <th>Note</th>
@@ -31,8 +34,6 @@
 	          <th></th>
 	        </tr>
 	      </thead>
-
-<%if @client.bills.any?%>
 	      <tbody>
 	          <tr>
 	          	<%@client.bills.each do |i|%>
