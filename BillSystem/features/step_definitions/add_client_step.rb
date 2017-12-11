@@ -25,9 +25,9 @@ Then("there is a new client with name {string}") do |string|
 end
 
 When("I insert the surname {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+  @c.surname = "Rossi"
 end
 
 Then("there is a new client with surname {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content("Rossi")
 end
