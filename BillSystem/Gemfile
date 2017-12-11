@@ -42,6 +42,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
+end
 
 
 group :development, :test do
@@ -51,6 +55,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
+  
 end
 
 group :development do
