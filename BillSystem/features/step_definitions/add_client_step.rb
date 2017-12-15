@@ -12,8 +12,7 @@ When("I click on {string}") do |string|
 end
 
 When("I insert the name {string}") do |string|
-  @c = Client.new()
-  @c.name = "Mario"
+  @client = FactoryBot.create(:client)
 end
 
 Then("I am on the page of clients") do
@@ -21,13 +20,13 @@ Then("I am on the page of clients") do
 end
 
 Then("there is a new client with name {string}") do |string|
-  expect(page).to have_content("Mario")
+  expect(page).to have_content(@client.name)
 end
 
 When("I insert the surname {string}") do |string|
-  @c.surname = "Rossi"
+  @client = FactoryBot.create(:client)
 end
 
 Then("there is a new client with surname {string}") do |string|
-  expect(page).to have_content("Rossi")
+  expect(page).to have_content(@client.surname)
 end

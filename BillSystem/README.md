@@ -1,5 +1,7 @@
 # ASSIGMENTS
 
+Team members: Fabiola Spinel, Lucrezia Ruggeri, Dmytro Kashchuk
+
 Assigments is in "Assigments" Folder [Assigments](Assigments)
 
 Features: [Behaviour Driven Development Specification](features)

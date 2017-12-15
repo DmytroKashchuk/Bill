@@ -1,17 +1,19 @@
 Then("I view a name") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @client = FactoryBot.create(:client)
+  visit client_path(@client)
+  expect(page).to have_content(@client.name)
 end
 
 Then("I view a surname") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content(@client.surname)
 end
 
 Then("I view a fiscalcode") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content(@client.fiscalcode)
 end
 
 Then("I view a Hourtariff") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content(@client.Hourtariff)
 end
 
 Then("I view a Note") do
