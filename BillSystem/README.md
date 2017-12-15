@@ -1,3 +1,3 @@
 # README
 
-Assigmentes is in "Assigments" Folder [BillSystem/Assigments](BillSystem/Assigments)
+Assigmentes is in "Assigments" Folder [Assigments](Assigments)
