@@ -1,15 +1,29 @@
 <h1>Add fattures to client: <%#@clients%></h1>
-<%= form_for([@client, @bill]) do |f| %>
+<%= form_for([@client, @bill]) do |form| %>
  
-  <div class="field">
-    <%= f.text_field :note %>
-    <%= f.date_field :Data %>
-    <%= f.number_field :totalEuro %>
-    <%= f.number_field :totalHour %>
 
+
+<div class="form-group">
+    <%= form.label :Note%>
+    <%= form.text_field :note, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :data %>
+    <%= form.date_field :Data, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :totalEuro %>
+    <%= form.number_field :totalEuro, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :totalHour %>
+    <%= form.number_field :totalHour, class: "form-control" %>
   </div>
  
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit class: "btn btn-primary btn-lg active"%>
   </div>
 <%end%>
