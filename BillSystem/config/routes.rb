@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'static_page/Login'
   get 'clients/allclientWithBills'
   get 'bills/new'
+  get '/', to: 'clients#index'
 
   resources :clients do
   	resources :bills, only: [:new, :create, :destroy]
