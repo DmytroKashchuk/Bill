@@ -159,6 +159,7 @@ GEM
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
+    railroady (1.5.3)
     rails (5.1.4)
       actioncable (= 5.1.4)
       actionmailer (= 5.1.4)
@@ -278,6 +279,7 @@ DEPENDENCIES
   less-rails-bootstrap
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.7)
+  railroady
   rails (~> 5.1.4)
   rspec-rails (~> 3.6)
   sass-rails (~> 5.0)
