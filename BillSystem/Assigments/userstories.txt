@@ -1,0 +1,9 @@
+User Stories:
+Come User voglio poter aggiungere clienti
+Come User voglio poter eliminare clienti
+Come User voglio tenere conto di tutte le ore lavorate per ogni cliente
+Come User voglio poter applicare una tariffa ad ogni cliente
+Come User voglio vedere quanto deve pagarmi complessivamente ogni cliente
+Come User voglio vedere i clienti che non hanno pagato
+Come User voglio tenere traccia di tutte le fatture emesse ad ogni cliente
+Come User voglio visualizzare il profilo di ogni cliente

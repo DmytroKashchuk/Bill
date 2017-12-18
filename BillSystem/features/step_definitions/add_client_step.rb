@@ -7,12 +7,13 @@ Given("I am viewing the list of clients") do
 end
 
 When("I click on {string}") do |string|
-  click_on 'New client'
+  click_on string
   expect(page).to have_content("New Client")
 end
 
 When("I insert the name {string}") do |string|
-  @client = FactoryBot.create(:client)
+  @client = FactoryBot.create(:Client)
+  @client.name = string
 end
 
 Then("I am on the page of clients") do
@@ -24,7 +25,7 @@ Then("there is a new client with name {string}") do |string|
 end
 
 When("I insert the surname {string}") do |string|
-  @client = FactoryBot.create(:client)
+  @client.surname = string
 end
 
 Then("there is a new client with surname {string}") do |string|

@@ -9,5 +9,5 @@ Features: [Behaviour Driven Development Specification](features)
 Test results: [Test result](Assigments/testResult.txt)
 
 Presentazione finale:
- - [Presentazione finale](Assigments/Presentation.odp)
+ - [Presentazione finale](Assigments/Presentation.pdf)
  - [railroady results](Assigments/ER_railroady)
