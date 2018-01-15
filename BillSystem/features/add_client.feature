@@ -1,17 +1,13 @@
-Feature: Add new client
+Feature: create a client
+  In order to keep track of customers
   As a user
-  I want to be able to add new clients
+  I want to create a new client
 
-  Scenario: Add Client name
-    Given I am on list "Clients"
-    And I click on "New Client"
-    When I fill Client name with "Mario"
-    And I click on "Create client"
-    Then I should see the page of "Mario"
+  Background:
+    And I am on "clients" page
 
-  Scenario: Name field blank
-    Given I am on list "Clients"
-    And I click on "New Client"
-    When I leave name blank 
-    And I click on "create client"
-    Then I should see an error message
+  Scenario: create a valid customer
+    When I click on "New client"
+    And I fill in the customer name "Marco"
+    Then I click on "Create Client"
+    And I should see the client "Marco" in the list
