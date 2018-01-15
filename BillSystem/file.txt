@@ -1,0 +1,8 @@
+And I view a surname
+    And I view a fiscalcode
+    And I view a Hourtariff
+    And I view a Note
+    And I view a Date
+    And I view a Totalhour
+    And I view a totalEuro
+    And I view a Earn

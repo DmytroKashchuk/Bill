@@ -3,19 +3,16 @@ Feature: modify client data
   As a user
   I want to edit a client
 
-  Scenario: change the name of a client
-    Given there is a client
-    And I am viewing the details of a cleint
+  Scenario: Edit client
+    Given I am on list "Clients"
     When I click on "Edit"
-    And I change the name to "Luca"
+    And I change the "Mario" to "Luca"
     And I click on "Update Cleint"
-    Then I am on the page of the client
-    And the name of the client is "Luca"
+    Then I am on the page of "Luca"
 
-  Scenario: can't leave the name blank
-    Given there is a client
-    And I am viewing the details of a client
-    When I click on "Edit"
-    And I change the name to ""
-    And I click on "Update Client"
-    Then I should see an error
+  Scenario: Name field blank
+    Given I am on list "Clients"
+    And I click on "Edit"
+    When I leave name blank 
+    And I click on "Update client"
+    Then I should see an error message

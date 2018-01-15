@@ -1,22 +1,17 @@
-Feature: add client
-  In order to keep track of clients in my billing system
+Feature: Add new client
   As a user
-  I want to add a client
+  I want to be able to add new clients
 
-  Scenario: add the client name
-    Given there is a list of clients
-    And I am viewing the list of clients
-    When I click on "New client"
-    And I insert the name "Mario"
-    And I click on "Create Client"
-    Then I am on the page of clients
-    And there is a new client with name "Mario"
+  Scenario: Add Client name
+    Given I am on list "Clients"
+    And I click on "New Client"
+    When I fill Client name with "Mario"
+    And I click on "Create client"
+    Then I should see the page of "Mario"
 
-    Scenario: add the client surname
-      Given there is a list of clients
-      And I am viewing the list of clients
-      When I click on "New client"
-      And I insert the surname "Rossi"
-      And I click on "Create Client"
-      Then I am on the page of clients
-      And there is a new client with surname "Rossi"
+  Scenario: Name field blank
+    Given I am on list "Clients"
+    And I click on "New Client"
+    When I leave name blank 
+    And I click on "create client"
+    Then I should see an error message
