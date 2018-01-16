@@ -16,4 +16,4 @@ Feature: create a client
     When I click on "New client"
     And I fill in the client name ""
     Then I click on "Create Client"
-    And I should see an error
+    And I should see an error 
