@@ -3,12 +3,10 @@ Feature: delete client
   As a user
   I want to delete a client
 
-  Backgroud:
-    I have Client "Mario"
+  Background:
+    Given There is client named "Mario"
+    And I am on list of Clients
 
   Scenario: delete client
-    Given I am on list "Clients"
     When I click on "Destroy"
-    And I confirm the popup
-    Then I am on the page "Clients"
-    And I should not see "Mario on the list "Clients"
+    Then I should not see "Mario"
