@@ -14,6 +14,6 @@ Feature: create a client
 
   Scenario: create a not valid client
     When I click on "New client"
-    And I fill in the invalid client name ""
+    And I fill in the client name ""
     Then I click on "Create Client"
     And I should see an error

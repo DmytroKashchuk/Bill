@@ -23,7 +23,5 @@ Then("I should see an error") do
 expect(page).to have_css('#error_explanation')
 end
 
-When("I fill in the invalid client name {string}") do |string|
-  fill_in 'Name', with: ''
-end
+
  

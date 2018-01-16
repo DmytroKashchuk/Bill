@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'bills/new'
   get '/', to: 'clients#index'
 
+get 'clients/:id/bills', to: 'clients#show'
+
+
   resources :clients do
   	resources :bills, only: [:new, :create, :destroy]
   end
