@@ -199,8 +199,7 @@
       ],
       "/home/dima/Documents/git/Bill/BillSystem/app/controllers/static_page_controller.rb": [
         0,
-        0,
-        0,
+        null,
         0
       ],
       "/home/dima/Documents/git/Bill/BillSystem/app/mailers/application_mailer.rb": [
@@ -226,6 +225,6 @@
         0
       ]
     },
-    "timestamp": 1516885240
+    "timestamp": 1516917917
   }
 }
