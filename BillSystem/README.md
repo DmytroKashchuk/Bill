@@ -26,14 +26,26 @@ Tramite il link Show bills relative this client l’utente potrà vedere la list
 Il sistema genererà in automatico l’importo totale della singola fattura (Earn), dato dal prodotto fra il numero di ore lavorate e la tariffa oraria fissata.
 In fondo alla pagina, verrà anche evidenziato il guadagno totale (Total), generato dal cliente cui la pagina si riferisce.
 
-Si veda anche la [Presentazione](Assigments/Presentation.pdf).
-
 # DOCUMENTAZIONE
 - Features: [link](features)
 - User stories: [link](Assigments/userstories.txt)
 - Test results: [link](Assigments/testResult.txt)
 - Diagrammi ER: [link](Assigments/ER_railroady)
+- Presentazione: [link](Assigments/Presentation.pdf)
+- Coverage: [link](coverage/.last_run.json)
 
+#### coverage
+```sh
+{
+  "result": {
+    "covered_percent": 79.05
+  }
+}
+
+```
+La copertura dei testi è del 79%
+
+  
 
 # LICENZA
 
