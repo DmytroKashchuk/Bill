@@ -15,7 +15,7 @@ BillingSystem è stata sviluppata in linguaggio Ruby (versione 2.4.2) utilizzand
 
 BillingSystem è stata sviluppata al fine di gestire al meglio il sistema di fatturazione aziendale. Grazie a questa applicazione sarà possibile registrare i propri clienti e, per ognuno di loro, la lista delle fatture che gli vengono emesse a seguito di prestazioni lavorative da parte dell’utente del sistema.
 
-## CLIENTI :boy:
+## CLIENTI
 
 Dalla homepage che si aprirà non appena avviato il software, sarà possibile creare una lista di clienti, inserendo i relativi dati: nome, cognome, codice fiscale e tariffa oraria. Quest’ultima sarà stabilita dall’utente del sistema, nonché fornitore del servizio esposto in fattura.
 Accanto a tali dati, per ciascun cliente verrà generato automaticamente un link mediante cui vedere la lista completa delle fatture che gli sono state emesse. Inoltre, attraverso i link presenti nelle ultime due colonne, sarà possibile modificare i dati di un determinato cliente (Edit) oppure eliminarli (Destroy).
