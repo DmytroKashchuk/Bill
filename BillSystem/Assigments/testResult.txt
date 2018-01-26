@@ -1,144 +1,114 @@
-Feature: add client
-  In order to keep track of clients in my billing system
+Feature: create a client
+  In order to keep track of clients
   As a user
-  I want to add a client
+  I want to create a new client
 
-  Scenario: add the client name                 # features/add_client.feature:6
-    Given there is a list of clients            # features/step_definitions/add_client_step.rb:1
-    And I am viewing the list of clients        # features/step_definitions/add_client_step.rb:5
-    When I click on "New client"                # features/step_definitions/add_client_step.rb:9
-    And I insert the name "Mario"               # features/step_definitions/add_client_step.rb:14
-    And I click on "Create Client"              # features/step_definitions/add_client_step.rb:9
-      Unable to find visible link or button "New client" (Capybara::ElementNotFound)
-      ./features/step_definitions/add_client_step.rb:10:in `"I click on {string}"'
-      features/add_client.feature:11:in `And I click on "Create Client"'
-    Then I am on the page of clients            # features/step_definitions/add_client_step.rb:19
-    And there is a new client with name "Mario" # features/step_definitions/add_client_step.rb:23
+  Background:                           # features/add_bill.feature:6
+    Given There is client named "Mario" # features/step_definitions/delete_bill_step.rb:1
 
-  Scenario: add the client surname                 # features/add_client.feature:15
-    Given there is a list of clients               # features/step_definitions/add_client_step.rb:1
-    And I am viewing the list of clients           # features/step_definitions/add_client_step.rb:5
-    When I click on "New client"                   # features/step_definitions/add_client_step.rb:9
-    And I insert the surname "Rossi"               # features/step_definitions/add_client_step.rb:27
-      undefined method `surname=' for nil:NilClass (NoMethodError)
-      ./features/step_definitions/add_client_step.rb:28:in `"I insert the surname {string}"'
-      features/add_client.feature:19:in `And I insert the surname "Rossi"'
-    And I click on "Create Client"                 # features/step_definitions/add_client_step.rb:9
-    Then I am on the page of clients               # features/step_definitions/add_client_step.rb:19
-    And there is a new client with surname "Rossi" # features/step_definitions/add_client_step.rb:31
+  Scenario: create a valid bill                         # features/add_bill.feature:9
+    Given I on "Mario" Bills Page                       # features/step_definitions/delete_bill_step.rb:10
+    When I click on "add Bills"                         # features/step_definitions/add_client_step.rb:5
+    And I fill in the bill note "KPI"                   # features/step_definitions/add_bill_step.rb:1
+    Then I should see the bill client "KPI" in the list # features/step_definitions/add_bill_step.rb:10
 
-Feature: add hourly tariff to a client
-  In order to apply an hourly rate different for each client
+  Scenario: create a invalid bill       # features/add_bill.feature:15
+    Given I on "Mario" Bills Page       # features/step_definitions/delete_bill_step.rb:10
+    When I click on "add Bills"         # features/step_definitions/add_client_step.rb:5
+    And I fill in the invalid bill note # features/step_definitions/add_bill_step.rb:14
+    Then I should see an invadlidation  # features/step_definitions/add_bill_step.rb:23
+
+Feature: create a client
+  In order to keep track of clients
   As a user
-  I want to add a Hourtariff
+  I want to create a new client
 
-  Scenario: add the Hourtariff                 # features/apply_hourly_rate.feature:6
-    Given there is a list of clients           # features/step_definitions/add_client_step.rb:1
-    And I am viewing the list of clients       # features/step_definitions/add_client_step.rb:5
-    When I click on "Edit"                     # features/step_definitions/add_client_step.rb:9
-    And I insert the Hourtafiff "32"           # features/step_definitions/apply_hourly_rate_step.rb:1
-      TODO (Cucumber::Pending)
-      ./features/step_definitions/apply_hourly_rate_step.rb:2:in `"I insert the Hourtafiff {string}"'
-      features/apply_hourly_rate.feature:10:in `And I insert the Hourtafiff "32"'
-    And I click on "Update Client"             # features/step_definitions/add_client_step.rb:9
-    Then I am on the page of clients           # features/step_definitions/add_client_step.rb:19
-    And there is a client with Hourtariff "32" # features/step_definitions/apply_hourly_rate_step.rb:5
+  Background:                  # features/add_client.feature:6
+    And I am on "clients" page # features/step_definitions/add_client_step.rb:1
+
+  Scenario: create a valid client                   # features/add_client.feature:9
+    When I click on "New client"                    # features/step_definitions/add_client_step.rb:5
+    And I fill in the client name "Marco"           # features/step_definitions/add_client_step.rb:9
+    Then I click on "Create Client"                 # features/step_definitions/add_client_step.rb:5
+    And I should see the client "Marco" in the list # features/step_definitions/add_client_step.rb:17
+
+  Scenario: create a not valid client # features/add_client.feature:15
+    When I click on "New client"      # features/step_definitions/add_client_step.rb:5
+    And I fill in the client name ""  # features/step_definitions/add_client_step.rb:9
+    Then I click on "Create Client"   # features/step_definitions/add_client_step.rb:5
+    And I should see an error         # features/step_definitions/add_client_step.rb:22
+
+Feature: modify client data
+  In order to mantain the data of clients up to date
+  As a user
+  I want to apply an tariff ti a client
+
+  Background:                           # features/apply_client_tariff.feature:6
+    Given There is client named "Mario" # features/step_definitions/delete_bill_step.rb:1
+    And I am on list of Clients         # features/step_definitions/delete_client_step.rb:5
+
+  Scenario: add tariff              # features/apply_client_tariff.feature:10
+    When I click on "Edit"          # features/step_definitions/add_client_step.rb:5
+    And I change the "tariff" houre # features/step_definitions/apply_client_tariff_step.rb:1
+    And I click on "Update Client"  # features/step_definitions/add_client_step.rb:5
+    Then I should see "tariff"      # features/step_definitions/modify_client_step.rb:9
+
+  Scenario: Edit client with invalid tariff # features/apply_client_tariff.feature:16
+    When I click on "Edit"                  # features/step_definitions/add_client_step.rb:5
+    And I leave tarif blank                 # features/step_definitions/apply_client_tariff_step.rb:5
+    And I click on "Update Client"          # features/step_definitions/add_client_step.rb:5
+    Then I should see an error              # features/step_definitions/add_client_step.rb:22
+
+Feature: delete client
+  In order to forgot old clients and mantain the client list up to date
+  As a user
+  I want to delete a bill
+
+  Background:                           # features/delete_bill.feature:6
+    Given There is client named "Mario" # features/step_definitions/delete_bill_step.rb:1
+
+  Scenario: delete bill             # features/delete_bill.feature:9
+    Given I on "Mario" Bill details # features/step_definitions/delete_bill_step.rb:32
+    And I click on "add Bills"      # features/step_definitions/add_client_step.rb:5
+    And there is bill "KPI"         # features/step_definitions/delete_bill_step.rb:20
+    And I see "KPI" in the page     # features/step_definitions/delete_bill_step.rb:36
+    When I click on "Delete"        # features/step_definitions/add_client_step.rb:5
+    And I should not see "KPI"      # features/step_definitions/delete_bill_step.rb:5
 
 Feature: delete client
   In order to forgot old clients and mantain the client list up to date
   As a user
   I want to delete a client
 
-  Scenario: delete client                # features/delete_client.feature:6
-    Given there is a list of clients     # features/step_definitions/add_client_step.rb:1
-    And I am viewing the list of clients # features/step_definitions/add_client_step.rb:5
-    When I click on "Destroy"            # features/step_definitions/add_client_step.rb:9
-    And I click on "OK"                  # features/step_definitions/add_client_step.rb:9
-      Unable to find visible link or button "New client" (Capybara::ElementNotFound)
-      ./features/step_definitions/add_client_step.rb:10:in `"I click on {string}"'
-      features/delete_client.feature:10:in `And I click on "OK"'
-    Then I am on the page of clients     # features/step_definitions/add_client_step.rb:19
-    And there is no ...                  # features/step_definitions/delete_client_step.rb:1
+  Background:                           # features/delete_client.feature:6
+    Given There is client named "Mario" # features/step_definitions/delete_bill_step.rb:1
+    And I am on list of Clients         # features/step_definitions/delete_client_step.rb:5
+
+  Scenario: delete client         # features/delete_client.feature:10
+    When I click on "Destroy"     # features/step_definitions/add_client_step.rb:5
+    Then I should not see "Mario" # features/step_definitions/delete_bill_step.rb:5
 
 Feature: modify client data
   In order to mantain the data of clients up to date
   As a user
   I want to edit a client
 
-  Scenario: change the name of a client      # features/modify_client.feature:6
-    Given there is a client                  # features/step_definitions/modify_client_step.rb:1
-      TODO (Cucumber::Pending)
-      ./features/step_definitions/modify_client_step.rb:2:in `"there is a client"'
-      features/modify_client.feature:7:in `Given there is a client'
-    And I am viewing the details of a cleint # features/step_definitions/modify_client_step.rb:5
-    When I click on "Edit"                   # features/step_definitions/add_client_step.rb:9
-    And I change the name to "Luca"          # features/step_definitions/modify_client_step.rb:9
-    And I click on "Update Cleint"           # features/step_definitions/add_client_step.rb:9
-    Then I am on the page of the client      # features/step_definitions/modify_client_step.rb:13
-    And the name of the client is "Luca"     # features/step_definitions/modify_client_step.rb:17
+  Scenario: Edit client                 # features/modify_client.feature:8
+    Given There is client named "Mario" # features/step_definitions/delete_bill_step.rb:1
+    And I am on list of Clients         # features/step_definitions/delete_client_step.rb:5
+    When I click on "Edit"              # features/step_definitions/add_client_step.rb:5
+    And I change the "Mario" to "Luca"  # features/step_definitions/modify_client_step.rb:1
+    And I click on "Update Client"      # features/step_definitions/add_client_step.rb:5
+    Then I should see "Luca"            # features/step_definitions/modify_client_step.rb:9
 
-  Scenario: can't leave the name blank       # features/modify_client.feature:15
-    Given there is a client                  # features/step_definitions/modify_client_step.rb:1
-      TODO (Cucumber::Pending)
-      ./features/step_definitions/modify_client_step.rb:2:in `"there is a client"'
-      features/modify_client.feature:16:in `Given there is a client'
-    And I am viewing the details of a client # features/step_definitions/modify_client_step.rb:21
-    When I click on "Edit"                   # features/step_definitions/add_client_step.rb:9
-    And I change the name to ""              # features/step_definitions/modify_client_step.rb:9
-    And I click on "Update Client"           # features/step_definitions/add_client_step.rb:9
-    Then I should see an error               # features/step_definitions/modify_client_step.rb:25
+  Scenario: Edit client with invalid field # features/modify_client.feature:16
+    Given There is client named "Mario"    # features/step_definitions/delete_bill_step.rb:1
+    And I am on list of Clients            # features/step_definitions/delete_client_step.rb:5
+    When I click on "Edit"                 # features/step_definitions/add_client_step.rb:5
+    And I leave name blank                 # features/step_definitions/modify_client_step.rb:5
+    And I click on "Update Client"         # features/step_definitions/add_client_step.rb:5
+    Then I should see an error             # features/step_definitions/add_client_step.rb:22
 
-Feature: add bill to a client
-  In order to keep track of all the bills of a client
-  I want to add a bill
-
-  Scenario: add a bill                                # features/track_bills_client.feature:5
-    Given there is a list of clients                  # features/step_definitions/add_client_step.rb:1
-    And I am viewing the list of clients              # features/step_definitions/add_client_step.rb:5
-    When I click on "Show bills relative this client" # features/step_definitions/add_client_step.rb:9
-    And I click on "add Bills"                        # features/step_definitions/add_client_step.rb:9
-      Unable to find visible link or button "New client" (Capybara::ElementNotFound)
-      ./features/step_definitions/add_client_step.rb:10:in `"I click on {string}"'
-      features/track_bills_client.feature:9:in `And I click on "add Bills"'
-    And I add Note "22"                               # features/step_definitions/track_bills_client_step.rb:1
-    Then I am on the page of client                   # features/step_definitions/track_bills_client_step.rb:5
-    And there is a new bill with Note "22"            # features/step_definitions/track_bills_client_step.rb:9
-
-Feature: view client profile
-  In order to controll the data of the clients
-  As a user
-  I want to view client profile
-
-  Scenario: view client profile                       # features/view_clients_profile.feature:6
-    Given there is a list of clients                  # features/step_definitions/add_client_step.rb:1
-    And I am viewing the list of clients              # features/step_definitions/add_client_step.rb:5
-    When I click on "Show bills relative this client" # features/step_definitions/add_client_step.rb:9
-    Then I am on the page of client                   # features/step_definitions/track_bills_client_step.rb:5
-      TODO (Cucumber::Pending)
-      ./features/step_definitions/track_bills_client_step.rb:6:in `"I am on the page of client"'
-      features/view_clients_profile.feature:10:in `Then I am on the page of client'
-    And I view a name                                 # features/step_definitions/view_client_profile_step.rb:1
-    And I view a surname                              # features/step_definitions/view_client_profile_step.rb:5
-    And I view a fiscalcode                           # features/step_definitions/view_client_profile_step.rb:9
-    And I view a Hourtariff                           # features/step_definitions/view_client_profile_step.rb:13
-    And I view a Note                                 # features/step_definitions/view_client_profile_step.rb:17
-    And I view a Date                                 # features/step_definitions/view_client_profile_step.rb:21
-    And I view a Totalhour                            # features/step_definitions/view_client_profile_step.rb:25
-    And I view a totalEuro                            # features/step_definitions/view_client_profile_step.rb:29
-    And I view a Earn                                 # features/step_definitions/view_client_profile_step.rb:33
-
-Failing Scenarios:
-cucumber features/add_client.feature:6 # Scenario: add the client name
-cucumber features/add_client.feature:15 # Scenario: add the client surname
-cucumber features/delete_client.feature:6 # Scenario: delete client
-cucumber features/track_bills_client.feature:5 # Scenario: add a bill
-Pending Scenarios:
-cucumber features/apply_hourly_rate.feature:6 # Scenario: add the Hourtariff
-cucumber features/modify_client.feature:6 # Scenario: change the name of a client
-cucumber features/modify_client.feature:15 # Scenario: can't leave the name blank
-cucumber features/view_clients_profile.feature:6 # Scenario: view client profile
-
-8 scenarios (4 failed, 4 pending)
-60 steps (4 failed, 33 skipped, 4 pending, 19 passed)
-0m0.968s
+10 scenarios (10 passed)
+55 steps (55 passed)
 
